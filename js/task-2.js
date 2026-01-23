@@ -24,3 +24,21 @@ const images = [
     alt: "Lighthouse Coast Sea",
   }
 ];
+
+//Використовуй масив об'єктів images для створення елементів <img>, вкладених в <li>.
+// Ти можеш створити й додати HTML-елементи, використовуючи document.createElement() і elem.append() або шаблонні рядки і elem.insertAdjacentHTML().
+// Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
+// Додай мінімальне оформлення галереї флексбоксами через CSS класи.
+
+const container = document.querySelector(".gallery");
+
+function addImages(array) {
+  return array.map((item) => 
+  `
+  <li class="gallery-li">
+  <img class="gallery-images" src="${item.url}" alt="${item.alt}">
+  </li>
+  `).join("")
+}
+
+container.insertAdjacentHTML("beforeend", addImages(images))
